@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhoneBookTest {
 
@@ -11,7 +10,6 @@ public class PhoneBookTest {
     @BeforeAll
     public static void startedAll() {
         System.out.println("Начало тестов");
-        sut = new PhoneBook();
     }
 
     @BeforeEach
@@ -28,6 +26,7 @@ public class PhoneBookTest {
     @AfterEach
     public void finished() {
         System.out.println("Тест завершен");
+        sut = null;
     }
 
     @Test
@@ -66,8 +65,8 @@ public class PhoneBookTest {
 
         // when:
         sut.addGroup(group); // вызов сопровождается выводом строки в консоль
-                             // пока не разобрался как запретить вывод в тесте,
-                            //  сохранив вывод в основном классе
+        // пока не разобрался как запретить вывод в тесте,
+        //  сохранив вывод в основном классе
         // then:
         Assertions.assertNotNull(sut);
     }
